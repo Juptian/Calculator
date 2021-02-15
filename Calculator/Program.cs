@@ -78,7 +78,7 @@ namespace Calculator
                     }
                 }
                 Console.WriteLine($"Result: {result}");
-                Console.WriteLine($"Go again? (True for yes, false for no)");
+                Console.WriteLine($"Go again? (true for yes, false for no)");
                 goAgain = Convert.ToBoolean(Console.ReadLine());
             }
         }
