@@ -31,9 +31,7 @@ namespace Calculator
                                 result = Convert.ToDouble(arr[i - 1]) / Convert.ToDouble(arr[i + 1]);
                                 break;
                             case "^":
-                                //MathF.Pow is a float for some reason?
-                                result = MathF.Pow((float)Convert.ToDouble(arr[i - 1]), (float)Convert.ToDouble(arr[i + 1]));
-                                Console.WriteLine($"{(float)Convert.ToDouble(arr[i - 1])}\n");
+                                result = Math.Pow(Convert.ToDouble(arr[i - 1]), Convert.ToDouble(arr[i + 1]));
                                 break;
                             //I gotta figure out how to add priority of operations
                             //Right now it does it left to right
@@ -63,9 +61,9 @@ namespace Calculator
                                 break;
                             case "^":
                                 if (result != 0)
-                                    result = MathF.Pow((float)result, (float)Convert.ToDouble(arr[i + 1]));
+                                    result = Math.Pow(result, Convert.ToDouble(arr[i + 1]));
                                 else
-                                    result = MathF.Pow(1f, (float)Convert.ToDouble(arr[i - 1]));
+                                    result = Math.Pow(1, Convert.ToDouble(arr[i - 1]));
                                 Console.WriteLine($"{(float)Convert.ToDouble(arr[i-1])}\n");
                                 break;
                             //case "(":
@@ -78,7 +76,7 @@ namespace Calculator
                     }
                 }
                 Console.WriteLine($"Result: {result}");
-                Console.WriteLine($"Go again? (True for yes, false for no)");
+                Console.WriteLine($"Go again? (true for yes, false for no)");
                 goAgain = Convert.ToBoolean(Console.ReadLine());
             }
         }
